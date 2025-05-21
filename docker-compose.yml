@@ -1,0 +1,8 @@
+services:
+  mlbackend:
+    build:
+      context: ./MLBackend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./Model/model.pkl:/app/model.pkl
