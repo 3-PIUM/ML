@@ -1,2 +1,0 @@
-test
-jira 연동용 
