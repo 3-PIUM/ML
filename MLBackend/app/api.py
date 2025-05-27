@@ -2,9 +2,12 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 import pandas as pd
+from .monitoring import instrumentator
+
 
 app = FastAPI()
 model = joblib.load("model.pkl")
+instrumentator.instrument(app).expose(app, include_in_schema=False, should_gzip=True)
 
 # ✅ 여기에 입력 데이터 스키마를 정의
 class IrisRequest(BaseModel):

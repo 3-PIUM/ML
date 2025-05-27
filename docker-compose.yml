@@ -3,6 +3,22 @@ services:
     build:
       context: ./MLBackend
     ports:
-      - "8000:8000"
+      - "8000:80"
     volumes:
       - ./Model/model.pkl:/app/model.pkl
+    environment:
+      - ENABLE_METRICS=true
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    command:
+      - '--web.listen-address=0.0.0.0:9090'
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
