@@ -1,11 +1,12 @@
 services:
   mlbackend:
     build:
-      context: ./MLBackend
+      context: ./mlbackend
     ports:
       - "8000:80"
     volumes:
       - ./Model/model.pkl:/app/model.pkl
+      - ./Model/best_model_resnet_ALL.pt:/app/best_model_resnet_ALL.pt
     environment:
       - ENABLE_METRICS=true
   prometheus:

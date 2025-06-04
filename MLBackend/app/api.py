@@ -3,9 +3,11 @@ from pydantic import BaseModel
 import joblib
 import pandas as pd
 from .monitoring import instrumentator
+from app.color_api import router as color_router
 
 
 app = FastAPI()
+app.include_router(color_router)
 model = joblib.load("model.pkl")
 instrumentator.instrument(app).expose(app, include_in_schema=False, should_gzip=True)
 
@@ -27,3 +29,5 @@ async def predict(data: IrisRequest):
     }])
     pred = model.predict(df)
     return {"prediction": int(pred[0])}
+
+
