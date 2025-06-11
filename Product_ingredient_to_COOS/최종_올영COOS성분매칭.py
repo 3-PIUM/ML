@@ -6,7 +6,7 @@ import logging
 import os
 import re
 
-#  COOS 리스트 불러오기 (정답)##
+#  COOS 리스트 불러오기 (정답)
 
 def load_coos_from_csv(file_path):
     df = pd.read_csv(file_path)
