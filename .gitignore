@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# VSCode
+.vscode/
+
+# Environment variables
+.env
+
+# Model files
+*.pt
+*.pkl
+*.h5
+*.ckpt
+*.onnx
+*.joblib
+
+# Vectorstore (대용량 벡터 DB)
+vectorstore/
+MLBackend/vectorstore/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Mac system files
+.DS_Store
+
+# Zip or archive files
+*.zip
+*.tar.gz
+*.tar
+*.rar
+*.7z
